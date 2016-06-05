@@ -1,0 +1,10 @@
+﻿@using Tracker.Mvc
+@using Resources
+<p>
+	@Html.ActionLink(Pages.ClientAdd, MVC.Client.Create())
+</p>
+<div id="client-grid" class="grid"></div>
+@section scripts
+{
+	@Scripts.Render(JsPaths.ClientListJs)
+}

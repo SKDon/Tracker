@@ -1,0 +1,7 @@
+﻿@using Tracker.MvcHelpers.Extensions
+@using Resources
+@model Tracker.ViewModels.User.UserModel
+<div class="container-edit">
+	<h1>@Pages.Edit</h1>
+	@Html.EditPage(Url.Action(MVC.User.Edit()), Pages.Edit)
+</div>

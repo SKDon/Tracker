@@ -1,0 +1,11 @@
+﻿<div class="home-page">
+	@if(!HttpContext.Current.User.Identity.IsAuthenticated)
+	{
+		<div class="home-head">
+			@Html.Partial("LoginControl")
+		</div>
+	}
+	<div class="home-footer">
+	</div>
+	<div class="wrap-padding">&nbsp;</div>
+</div>

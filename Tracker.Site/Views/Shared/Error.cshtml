@@ -1,0 +1,6 @@
+﻿@model Tracker.MvcHelpers.Filters.CustomHandleErrorInfo
+
+<div>
+	@Html.Raw(Model.Exception.Message.Replace(Environment.NewLine, "<br/>"))
+</div>
+<div>Error uid: @Model.Uid</div>

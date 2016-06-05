@@ -1,0 +1,2 @@
+.\Scripts\backup-db.ps1 -server .\SQLEXPRESS -backupLocation C:\TrackerDbBackups\ -databaseName Tracker
+.\Scripts\backup-db.ps1 -server .\SQLEXPRESS -backupLocation C:\TrackerDbBackups\ -databaseName Tracker_Files

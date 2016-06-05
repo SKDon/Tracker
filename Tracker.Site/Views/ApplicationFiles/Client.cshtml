@@ -1,0 +1,9 @@
+﻿@using Tracker.DataAccess.Contracts.Enums
+<div class="row">
+	<div class="span4">
+		@Html.Partial("FilesHolder", ApplicationFileType.Invoice)
+	</div>
+	<div class="span4">
+		@Html.Partial("FilesHolder", ApplicationFileType.Swift)
+	</div>
+</div>

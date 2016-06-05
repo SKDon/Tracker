@@ -1,0 +1,47 @@
+﻿using System;
+using Tracker.Core.Contracts.Email;
+using Tracker.DataAccess.Contracts.Contracts;
+
+namespace Tracker.Jobs.Bill.Helpers
+{
+	public sealed class CourseSourceFailPolicy : ICourseSource
+	{
+		private readonly ICourseSource _courseSource;
+		private readonly string _fromEmail;
+		private readonly IMailSender _sender;
+		private readonly string _supportEmail;
+
+		public CourseSourceFailPolicy(ICourseSource courseSource, IMailSender sender, string fromEmail, string supportEmail)
+		{
+			_supportEmail = supportEmail;
+			_fromEmail = fromEmail;
+			_courseSource = courseSource;
+			_sender = sender;
+		}
+
+		public decimal GetEuroToRuble(string url)
+		{
+			try
+			{
+				return _courseSource.GetEuroToRuble(url);
+			}
+			catch(Exception e)
+			{
+				if(!string.IsNullOrWhiteSpace(_supportEmail))
+				{
+					var body = "Не удалось обновить курс евро из " + url + Environment.NewLine + e;
+					var message = new EmailMessage(
+						"Tracker. Ошибка обновления курса",
+						body,
+						_fromEmail,
+						_supportEmail,
+						null);
+
+					_sender.Send(message);
+				}
+
+				throw;
+			}
+		}
+	}
+}

@@ -1,0 +1,9 @@
+﻿namespace Tracker.ViewModels.Application
+{
+    public sealed class ApplicationPrintModel
+    {
+        public string City { get; set; }
+        public string Text { get; set; }
+	    public string ClientNic { get; set; }
+    }
+}

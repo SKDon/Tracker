@@ -1,0 +1,1 @@
+﻿.\Scripts\run-sql.ps1 .\SQLEXPRESS Tracker .\Scripts\delete-old-emails.sql
